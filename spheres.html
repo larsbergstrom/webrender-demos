@@ -22,7 +22,7 @@ canvas {
 .sphere {
     position: absolute;
     border-radius: 50%;
-    box-shadow: 0 0 5px 5px rgba(61, 178, 206, 0.2);
+/*    box-shadow: 0 0 5px 5px rgba(61, 178, 206, 0.2); */
 }
 .ambient, .diffuse, .specular {
     position: absolute;
@@ -48,7 +48,7 @@ var RINGS = 10;
 var NEAR_PLANE = 0.2;
 var FAR_PLANE = 5;
 var CIRCLE_RADIUS = 3;
-var SPHERE_COUNT = 600;
+var SPHERE_COUNT = 450;
 var AMBIENT_LIGHT = 0.2;
 var DIFFUSE_LIGHT = 0.6;
 var SPECULAR_LIGHT = 0.5;
@@ -460,7 +460,6 @@ var objectAngle = 0, heightAngle = 0;
 var lightCount = 0;
 
 var lastFrameTime = Date.now();
-var lastFrameCount = 0;
 var lastObjectAngle = objectAngle;
 var lastHeightAngle = heightAngle;
 
@@ -480,18 +479,16 @@ function next() {
     objectAngle = lastObjectAngle + SPEED * idealFramesElapsed;
     heightAngle = lastHeightAngle + SPEED * idealFramesElapsed;
 
-    lastFrameCount++;
     if (now >= lastFrameTime + 1000.0) {
-        log("*** " + lastFrameCount + " FPS");
         lastFrameTime = now;
-        lastFrameCount = 0;
         lastObjectAngle = objectAngle;
         lastHeightAngle = heightAngle;
     }
 
-    setTimeout(next, 0); 
+  requestAnimationFrame(next);
 }
-next();
+requestAnimationFrame(next);
+
 
 </script>
 </body>

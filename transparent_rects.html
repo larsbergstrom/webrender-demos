@@ -93,7 +93,6 @@ for (var i = 0; i < RECT_COUNT; i++) {
 }
 
 //var frameLimit = 5;
-var lastFrameTime = Date.now();
 var lastRefTime = Date.now();
 var frameCount = 0;
 function update() {
@@ -116,10 +115,8 @@ function update() {
 
     //frameLimit--;
     //if (frameLimit > 0)
-    setTimeout(update, Math.max((lastFrameTime + 16) - now, 0));
-
-    lastFrameTime = now;
+    requestAnimationFrame(update);
 }
-update();
-</script>
+requestAnimationFrame(update);
+p</script>
 

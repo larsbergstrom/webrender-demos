@@ -120,7 +120,7 @@ function hsvToRGB(h, s, v) {
     };
 }
 
-var CIRCLE_COUNT = 110;
+var CIRCLE_COUNT = 35;
 
 function parseCSSColorToHSV(color) {
     var r = parseInt(color.substr(1, 2), 16);
@@ -258,7 +258,8 @@ function next() {
     updateBackgroundColor(t);
     updateColorsOfObject(objectA, t);
     updateColorsOfObject(objectB, t);
-    setTimeout(next, 16);
+    requestAnimationFrame(next);
 }
-next();</script>
+requestAnimationFrame(next);
+</script>
 </html>
